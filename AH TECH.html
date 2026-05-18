@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AH TECH</title>
+    <!-- Included EmailJS SDK for background email delivery -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Replace with your actual EmailJS Public Key
+            emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); 
+        })();
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* அழகான நகரும் வண்ணப் பின்னணி (Animated Gradient Background) */
+            background: linear-gradient(-45deg, #1e3c72, #2a5298, #2ecc71, #27ae60);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* பின்னணி வண்ணம் மெதுவாக மாறுவதற்கான அனிமேஷன் */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.95); /* படிவம் தெளிவாக தெரிய லைட் பேக்ரவுண்ட் */
+            padding: 35px;
+            border-radius: 15px;
+            /* நவீன நிழல் வடிவம் (Modern Soft Shadow) */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+            backdrop-filter: blur(5px); /* கண்ணாடி போன்ற லுக் */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            color: #27ae60;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dcdde1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        input[type="text"]:focus {
+            border-color: #2ecc71;
+            box-shadow: 0 0 8px rgba(46, 204, 113, 0.3);
+            background-color: #ffffff;
+            outline: none;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+            background: #f1f2f6;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            cursor: pointer;
+            gap: 6px;
+            color: #2c3e50;
+        }
+
+        /* ரேடியோ பட்டன் ஸ்டைல் */
+        input[type="radio"] {
+            accent-color: #2ecc71; /* பச்சை நிற ரேடியோ பட்டன் */
+            transform: scale(1.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input[type="submit"] {
+            background-color: #2ecc71;
+            color: white;
+            box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+        }
+
+        input[type="submit"]:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        input[type="reset"] {
+            background-color: #e74c3c;
+            color: white;
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+        }
+
+        input[type="reset"]:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>AH TECH</h1> 
+
+    <form id="techForm">
+        
+        <!-- Phone Number -->
+        <div class="form-group">
+            <label for="phone">Phone No:</label>
+            <input type="text" id="phone" name="phone_No" placeholder="Enter phone number" required />
+        </div>
+
+        <!-- Request -->
+        <div class="form-group">
+            <label for="request">Request:</label>
+            <input type="text" id="request" name="Request" placeholder="Enter your request" required />
+        </div>
+
+        <!-- SIM Type -->
+        <div class="form-group">
+            <label>SIM:</label>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="SIM" value="Airtel" required /> Airtel</label>
+                <label class="radio-label"><input type="radio" name="SIM" value="Dialog" /> Dialog</label>
+                <label class="radio-label"><input type="radio" name="SIM" value="SLT" /> SLT</label>
+                <label class="radio-label"><input type="radio" name="SIM" value="Hutch" /> Hutch</label>
+            </div>
+        </div>
+
+        <!-- SIM Usage -->
+        <div class="form-group">
+            <label>SIM USE:</label>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="SIM_USE" value="OLD" required /> OLD</label>
+                <label class="radio-label"><input type="radio" name="SIM_USE" value="NEW" /> NEW</label>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-group">
+            <input type="reset" value="Cancel" />
+            <input type="submit" value="OK" />
+        </div>
+
+    </form>        
+</div>
+
+<script>
+    document.getElementById('techForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevents page reload
+
+        // Change button text to show loading state
+        const submitBtn = event.target.querySelector('input[type="submit"]');
+        const originalText = submitBtn.value;
+        submitBtn.value = "Sending...";
+        submitBtn.disabled = true;
+
+        // Gather form data parameters for EmailJS
+        const templateParams = {
+            phone_No: document.getElementById('phone').value,
+            Request: document.getElementById('request').value,
+            SIM: document.querySelector('input[name="SIM"]:checked').value,
+            SIM_USE: document.querySelector('input[name="SIM_USE"]:checked').value,
+            to_email: 'albertistin61@gmail.com' 
+        };
+
+        // Send via EmailJS
+        // Replace with your Service ID and Template ID from EmailJS
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            .then(function(response) {
+                alert('Your request has been successfully sent!');
+                document.getElementById('techForm').reset();
+            }, function(error) {
+                alert('Failed to send request. Please try again.');
+                console.error('EmailJS Error:', error);
+            })
+            .finally(function() {
+                submitBtn.value = originalText;
+                submitBtn.disabled = false;
+            });
+    });
+</script>
+
+</body>
+</html>
